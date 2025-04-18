@@ -1,5 +1,8 @@
 package com.zyziek055.spring_boot_basics;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PayPalPaymentService implements PaymentService {
 
     @Override
