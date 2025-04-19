@@ -11,6 +11,7 @@ public class OrderService {
 
     @Autowired //Use for multiconctrutor classes
     public OrderService(PaymentService paymentService) { //@Qualifier we use this if we want to override primiary method
+        System.out.println("Order service has been created");
         this.paymentService = paymentService;
     }
 
