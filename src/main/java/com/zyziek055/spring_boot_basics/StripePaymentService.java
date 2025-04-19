@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("stripe")
-@Primary //We use this if we have two beans to set this as a primiary option
+//@Service("stripe")
+//@Primary //We use this if we have two beans to set this as a primiary option
 public class StripePaymentService implements PaymentService {
     @Value("${stripe.apiUrl}")
     private String apiUrl;

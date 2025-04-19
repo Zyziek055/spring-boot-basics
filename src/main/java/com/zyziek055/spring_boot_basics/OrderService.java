@@ -10,7 +10,7 @@ public class OrderService {
     private PaymentService paymentService;
 
     @Autowired //Use for multiconctrutor classes
-    public OrderService(@Qualifier("stripe") PaymentService paymentService) { //@Qualifier we use this if we want to override primiary method
+    public OrderService(PaymentService paymentService) { //@Qualifier we use this if we want to override primiary method
         this.paymentService = paymentService;
     }
 
