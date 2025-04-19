@@ -9,8 +9,8 @@ public class SpringBootBasicsApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(SpringBootBasicsApplication.class, args);
-		var notificationService = context.getBean(NotificationManager.class);
-		notificationService.sendNotification("'this is the message'");
+		var orderService = context.getBean(OrderService.class);
+		orderService.placeOrder();
 	}
 
 }
