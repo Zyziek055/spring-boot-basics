@@ -1,6 +1,7 @@
 package com.zyziek055.spring_boot_basics;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -19,6 +20,11 @@ public class OrderService {
     @PostConstruct //This function runs right after the bean of class ORderService is created
     public void init() {
         System.out.println("OrderSerice PostConstruct");
+    }
+
+    @PreDestroy
+    public void cleanup() {
+        System.out.println("OrderService PreDestory");
     }
 
     public void placeOrder() {
