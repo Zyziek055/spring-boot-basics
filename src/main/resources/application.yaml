@@ -1,6 +1,10 @@
 spring:
   application:
     name: spring-boot-basics
+  datasource:
+    url: jdbc:mysql://localhost:3306/store?createDataBaseIfNotExist=true
+    username: root
+    password: haslohaslo1
 stripe:
   apiUrl: https://api.stripe.com
   timeout: 1000

@@ -9,9 +9,6 @@ public class Store {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext context = SpringApplication.run(Store.class, args);
-		var userService = context.getBean(UserService.class);
-		userService.registerUser(new User( "aaa", "aaa", "aaa"));
-
 	}
 
 }
