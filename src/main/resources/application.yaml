@@ -7,3 +7,6 @@ stripe:
   enabled: true
   supported-currencies: USD, EUR, GBP
 payment-gateway: stripe
+server-settings:
+  host: localhost
+  port: 3000
