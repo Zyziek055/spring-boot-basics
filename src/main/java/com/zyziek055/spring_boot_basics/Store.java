@@ -1,6 +1,7 @@
 package com.zyziek055.spring_boot_basics;
 
 import com.zyziek055.spring_boot_basics.entities.Address;
+import com.zyziek055.spring_boot_basics.entities.Tag;
 import com.zyziek055.spring_boot_basics.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +14,7 @@ public class Store {
 		ConfigurableApplicationContext context = SpringApplication.run(Store.class, args);
 		var user = User.builder().name("John").email("<EMAIL>").password("<PASSWORD>").build();
 
-		var address = Address.builder().street("123 Main St").city("Springfield").zip("12345").state("MA").build();
-
-		user.addAddress(address);
+		user.addTag("tag1");
 		System.out.println(user);
 	}
 
