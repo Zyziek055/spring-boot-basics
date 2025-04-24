@@ -12,12 +12,3 @@ spring:
     flyway:
       enabled: true
       baseline-on-migrate: true
-stripe:
-  apiUrl: https://api.stripe.com
-  timeout: 1000
-  enabled: true
-  supported-currencies: USD, EUR, GBP
-payment-gateway: stripe
-server-settings:
-  host: localhost
-  port: 3000

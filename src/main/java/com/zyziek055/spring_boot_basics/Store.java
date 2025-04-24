@@ -1,26 +1,22 @@
 package com.zyziek055.spring_boot_basics;
 
-import com.zyziek055.spring_boot_basics.entities.Address;
-import com.zyziek055.spring_boot_basics.entities.Profile;
-import com.zyziek055.spring_boot_basics.entities.Tag;
 import com.zyziek055.spring_boot_basics.entities.User;
+import com.zyziek055.spring_boot_basics.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class Store {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(Store.class, args);
-		var user = User.builder().name("John").email("<EMAIL>").password("<PASSWORD>").build();
+		ApplicationContext context = SpringApplication.run(Store.class, args);
+		var repository = context.getBean(UserRepository.class);
 
-		var profile = Profile.builder().bio("I am a developer").build();
+		repository.deleteById(1L);
 
-		user.setProfile(profile);
-		profile.setUser(user);
 
-		System.out.println(user);
+
 	}
 
 }
