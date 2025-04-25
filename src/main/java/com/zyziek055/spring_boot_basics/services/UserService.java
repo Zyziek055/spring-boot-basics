@@ -1,6 +1,7 @@
 package com.zyziek055.spring_boot_basics.services;
 
 import com.zyziek055.spring_boot_basics.entities.User;
+import com.zyziek055.spring_boot_basics.repositories.AddressRepository;
 import com.zyziek055.spring_boot_basics.repositories.ProfileRepository;
 import com.zyziek055.spring_boot_basics.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -14,6 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
+    private final AddressRepository addressRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -34,7 +36,12 @@ public class UserService {
 
     @Transactional
     public void showRelatedEntities() {
-        var profile = profileRepository.findById(2L).orElseThrow();
-        System.out.println(profile.getUser().getEmail());
+        var user = userRepository.findById(1L).orElseThrow();
+        System.out.println(user.getEmail());
+    }
+
+    public void fetchAddress() {
+        var address = addressRepository.findById(1L).orElseThrow();
+
     }
 }
