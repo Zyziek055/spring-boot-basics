@@ -31,7 +31,7 @@ public class User {
     private String password;
 
     @Builder.Default
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     private List<Address> addresses = new ArrayList<>();
 
     public void addAddress(Address address) {

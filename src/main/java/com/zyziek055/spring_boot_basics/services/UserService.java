@@ -1,5 +1,6 @@
 package com.zyziek055.spring_boot_basics.services;
 
+import com.zyziek055.spring_boot_basics.entities.Address;
 import com.zyziek055.spring_boot_basics.entities.User;
 import com.zyziek055.spring_boot_basics.repositories.AddressRepository;
 import com.zyziek055.spring_boot_basics.repositories.ProfileRepository;
@@ -43,5 +44,15 @@ public class UserService {
     public void fetchAddress() {
         var address = addressRepository.findById(1L).orElseThrow();
 
+    }
+
+    public void persistRelated() {
+        var user = User.builder().name("John").email("<EMAIL>").password("<PASSWORD>").build();
+
+        var address = Address.builder().street("123 Main St").city("Springfield").zip("12345").state("MA").build();
+
+        user.addAddress(address);
+
+        userRepository.save(user);
     }
 }
