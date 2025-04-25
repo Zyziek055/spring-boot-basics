@@ -14,6 +14,6 @@ public class Store {
 		ApplicationContext context = SpringApplication.run(Store.class, args);
 			var service = context.getBean(UserService.class);
 
-			service.showEntityStates();
+			service.showRelatedEntities();
 	}
 }

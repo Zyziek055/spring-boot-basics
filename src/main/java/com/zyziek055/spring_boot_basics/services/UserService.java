@@ -1,6 +1,7 @@
 package com.zyziek055.spring_boot_basics.services;
 
 import com.zyziek055.spring_boot_basics.entities.User;
+import com.zyziek055.spring_boot_basics.repositories.ProfileRepository;
 import com.zyziek055.spring_boot_basics.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
     @Transactional
@@ -28,5 +30,11 @@ public class UserService {
             System.out.println("Persistent");
         else
             System.out.println("Transient or detached");
+    }
+
+    @Transactional
+    public void showRelatedEntities() {
+        var profile = profileRepository.findById(2L).orElseThrow();
+        System.out.println(profile.getUser().getEmail());
     }
 }
