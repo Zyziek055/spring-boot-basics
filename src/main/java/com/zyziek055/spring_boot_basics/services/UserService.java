@@ -1,6 +1,8 @@
 package com.zyziek055.spring_boot_basics.services;
 
 import com.zyziek055.spring_boot_basics.entities.Address;
+import com.zyziek055.spring_boot_basics.entities.Category;
+import com.zyziek055.spring_boot_basics.entities.Product;
 import com.zyziek055.spring_boot_basics.entities.User;
 import com.zyziek055.spring_boot_basics.repositories.AddressRepository;
 import com.zyziek055.spring_boot_basics.repositories.ProfileRepository;
@@ -17,6 +19,8 @@ public class UserService {
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -63,5 +67,10 @@ public class UserService {
 
         user.removeAddress(address);
         userRepository.save(user);
+    }
+
+    @Transactional
+    public void manageProducts() {
+        productRepository.deleteById(4L);
     }
 }

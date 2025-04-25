@@ -13,6 +13,6 @@ public class Store {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(Store.class, args);
 			var service = context.getBean(UserService.class);
-			service.deleteRelated();
+			service.manageProducts();
 	}
 }
